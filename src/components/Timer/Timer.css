@@ -1,92 +1,71 @@
-/* Time picker component: Only shows when setting the timer length */
-.timePicker {
+.timer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 12px;
 
-  gap: 20px;
+  padding: 20px;
+  border-radius: 12px;
+
+  background-color: #1d4e57;
+  color: white;
 }
 
-.manualInput {
+.timerDisplay {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.timerControls {
   display: flex;
-  flex-direction: row;
+  gap: 8px;
+}
+
+.timerButton {
+  padding: 6px 14px;
+  border-radius: 6px;
+  background-color: #ffffff22;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.timerButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.timerButton.primary {
+  background-color: #7fd1b9;
+  color: #1f1f1f;
+}
+
+/* Time picker: only shows while setting the timer length */
+.timePicker {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+}
 
-  gap: 3px;
-
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-weight: bold;
-
+.timePickerInputs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
 }
 
 .timeInput {
-  width: 30px;
-  text-align: center;
-
-  border-radius: 6px;
+  width: 2.5rem;
   padding: 4px;
+  border-radius: 6px;
 
-  background-color: aliceblue;
+  background-color: #ffffff22;
+  outline: none;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
-/* Actual timer component */
-
-.Timer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 10px;
-  padding: 20px;
-  background-color: rgb(63, 163, 130);
-
-
-}
-
-.setTimeButton {
-  border-radius: 8px;
-  background-color: rosybrown;
-
-  padding: 8px 16px;
-
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-
-  cursor: pointer;
-}
-
-.timerDisplay{
-  border-radius: 10px;
-  background-color: aliceblue;
-  padding: 10px 16px;
-  margin: 10px;
-
-  font-size: large;
-  font-weight: bold;
-}
-
-.controlButtonsContainer{
-  display: flex;
-  justify-content: center;
-  align-content: center;
-
-  gap: 6px;
-}
-
-.confirmButton,
-.startStopButton,
-.ResetButton {
-  border-radius: 8px;
-  padding: 6px 12px;
-
-  background-color: #074F57;
-
-  font-weight: bold;
-  color: aliceblue;
-
-  cursor: pointer;
+.timeInput:focus {
+  background-color: #ffffff33;
 }

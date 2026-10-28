@@ -1,0 +1,93 @@
+.tipSplitter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 250px;
+
+  padding: 14px;
+  border-radius: 12px;
+
+  background-color: #183d2b;
+  color: white;
+}
+
+.tsField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.95;
+}
+
+.tsField input {
+  padding: 6px 8px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  background-color: #0e2619;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.tsPresets {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 3px;
+}
+
+.tsPresets button,
+.tsPeople button {
+  padding: 4px 0;
+  border-radius: 5px;
+  background-color: #ffffff17;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.tsPresets button.active { background-color: #4ade80; color: #0e2619; }
+
+.tsPeople > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+}
+
+.tsPeople button { width: 28px; }
+.tsPeople button:disabled { opacity: 0.4; }
+
+.tsRound {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.tsRound input { accent-color: #4ade80; }
+
+.tsResult {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #4ade80;
+  color: #0e2619;
+}
+
+.tsResult > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.tsResult strong { font-size: 1.5rem; }
+
+.tsSub {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  opacity: 0.8;
+}

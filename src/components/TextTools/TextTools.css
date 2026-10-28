@@ -1,0 +1,49 @@
+.textTools {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 12px;
+  border-radius: 12px;
+
+  background-color: #26282c;
+  color: white;
+}
+
+.textTools textarea {
+  min-height: 110px;
+  resize: vertical;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background-color: #1a1b1e;
+  color: white;
+  font-size: 0.85rem;
+}
+
+.ttStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #ffffff99;
+  font-size: 0.7rem;
+}
+
+.ttButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.ttButtons button {
+  padding: 3px 8px;
+  border-radius: 5px;
+  background-color: #ffffff17;
+  font-family: monospace;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.ttButtons button:hover:not(:disabled) { background-color: #5865f2; }
+.ttButtons button:disabled { opacity: 0.4; cursor: not-allowed; }

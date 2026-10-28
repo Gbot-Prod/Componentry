@@ -1,0 +1,49 @@
+.widgetFrame {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 14px;
+  background-color: #2b2d31;
+  box-shadow: 0 4px 14px #0000002e;
+  overflow: hidden;
+
+  animation: widgetDrop 220ms ease-out;
+}
+
+/* Components "land" on the canvas when added. */
+@keyframes widgetDrop {
+  from { opacity: 0; transform: translateY(-12px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
+.widgetFrameHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  color: #ffffffb3;
+}
+
+.widgetFrameTitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.widgetFrameRemove {
+  display: flex;
+  padding: 3px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.widgetFrameRemove:hover,
+.widgetFrameRemove:focus-visible {
+  background-color: #da373c;
+  color: white;
+}
+
+.widgetFrameBody {
+  padding: 0 10px 10px;
+}

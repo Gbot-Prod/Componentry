@@ -1,0 +1,60 @@
+.tally {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  padding: 16px;
+  border-radius: 12px;
+
+  background-color: #3b2a5c;
+  color: white;
+}
+
+.tallyLabel {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ffffff33;
+  outline: none;
+  background: transparent;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+}
+
+.tallyCount {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+
+  background-color: #7b5cd6;
+  box-shadow: 0 6px 0 #4f3a91;
+  font-size: 2.4rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: transform 60ms, box-shadow 60ms;
+}
+
+.tallyCount:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #4f3a91;
+}
+
+.tallyControls {
+  display: flex;
+  gap: 8px;
+}
+
+.tallyControls button {
+  padding: 4px 12px;
+  border-radius: 6px;
+  background-color: #ffffff22;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tallyControls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

@@ -4,6 +4,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 interface UseCountdownTimerOptions {
   onFinish?: () => void;
   tickMs?: number; // how often to re-render, default 100ms
+  initialMs?: number; // time shown before the first start, default 0
 }
 
 interface UseCountdownTimerReturn {
@@ -19,13 +20,14 @@ interface UseCountdownTimerReturn {
 export function useCountdownTimer({
   onFinish,
   tickMs = 100,
+  initialMs = 0,
 }: UseCountdownTimerOptions = {}): UseCountdownTimerReturn {
-  const [timeMs, setTimeMs] = useState(0);
+  const [timeMs, setTimeMs] = useState(initialMs);
   const [isRunning, setIsRunning] = useState(false);
 
   // These refs are the source of truth — they don't cause re-renders
   const startWallTime = useRef<number>(0);    // Date.now() when started/resumed
-  const remainingAtStart = useRef<number>(0); // how much time was left when we (re)started
+  const remainingAtStart = useRef<number>(initialMs); // how much time was left when we (re)started
   const intervalRef = useRef<number>(0);
   const onFinishRef = useRef(onFinish);
 

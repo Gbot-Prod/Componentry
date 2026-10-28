@@ -1,0 +1,62 @@
+.dateCalc {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 240px;
+
+  padding: 14px;
+  border-radius: 12px;
+
+  background-color: #2f2540;
+  color: white;
+}
+
+.dcModes {
+  display: flex;
+  padding: 2px;
+  border-radius: 8px;
+  background-color: #00000033;
+}
+
+.dcModes button {
+  flex: 1;
+  padding: 4px 0;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dcModes button[aria-pressed="true"] { background-color: #b794f6; color: #2f2540; }
+
+.dateCalc label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 0.7rem;
+  opacity: 0.9;
+}
+
+.dateCalc input {
+  padding: 5px 8px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  background-color: #00000040;
+  color: white;
+  color-scheme: dark;
+}
+
+.dcResult {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background-color: #ffffff12;
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.dcResult .dcMain {
+  font-size: 1.05rem;
+  font-weight: 800;
+  opacity: 1;
+}

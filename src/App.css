@@ -1,19 +1,52 @@
 .app {
-  display: flex;
   min-height: 100vh;
-  padding: 1rem 1rem 1rem calc(var(--sidebar-width, 80px) + 1rem);
+}
+
+/* The canvas is the whole screen; the sidebar floats over it. */
+.canvas {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layoutToggle {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.canvasGridArea {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem;
+  transition: box-shadow 120ms ease-out;
+}
+
+.canvasDropTarget {
+  box-shadow: inset 0 0 0 3px #5865f2;
+}
+
+.canvasGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  align-items: start;
   gap: 1rem;
 }
 
-.componentsGrid {
-  flex: 1;
+.canvasEmpty {
   display: grid;
-  align-content: center;
-  grid-template-columns: minmax(0, 1fr);
-  place-items: center;
+  place-content: center;
+  gap: 0.25rem;
+  flex: 1;
+
+  border: 2px dashed #8884;
+  border-radius: 18px;
+  color: #888;
+  text-align: center;
 }
 
-.componentContainer {
-  width: 100%;
-  max-width: 1200px;
+.canvasEmptyTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
 }

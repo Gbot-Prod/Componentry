@@ -1,6 +1,7 @@
 import "./ToDoList.css"
 import { useState, useEffect } from "react";
 import { useSortable } from "@dnd-kit/react/sortable";
+import { GripVertical, X } from "lucide-react";
 
 type SortableProps = {
   id: string;
@@ -12,14 +13,12 @@ function Sortable({ id, index, onDelete }: SortableProps) {
   const { ref } = useSortable({ id, index });
 
   return (
-    <li ref={ref} className="item"> 
-      <span className="text">{id}</span>
-      <button className="deleteButton" onClick={() => onDelete(index)}>
-        Delete
+    <li ref={ref} className="toDoItem">
+      <GripVertical size={14} className="toDoDragHandle" aria-hidden />
+      <span className="toDoItemText">{id}</span>
+      <button className="toDoDeleteButton" onClick={() => onDelete(index)} aria-label={`Delete ${id}`}>
+        <X size={14} />
       </button>
-      <div className="dragSource">
-          <p>::</p>
-        </div>
     </li>
   );
 }
@@ -52,29 +51,32 @@ function ToDoList() {
 
   return (
     <div className="toDoList">
-      <h1>To Do List</h1>
-
-      <div className="taskInputContainer">
+      <div className="toDoInputRow">
         <input
-          className="taskInput"
+          className="toDoInput"
           type="text"
           placeholder="Enter a Task"
           value={newTask}
           onChange={handleInputChange}
+          onKeyDown={(event) => event.key === "Enter" && addTask()}
         />
-        <button className="addButton" onClick={addTask}>Add Task</button>
+        <button className="toDoAddButton" onClick={addTask}>Add</button>
       </div>
-      
-      <div className="taskList">
-        {tasks.map((task, index) =>
-            <Sortable 
-              key={task} 
-              id={task} 
-              index={index}
-              onDelete={deleteTask}
-            />
-        )}
-      </div>
+
+      {tasks.length === 0 ? (
+        <p className="toDoEmpty">Nothing to do. Nice.</p>
+      ) : (
+        <ul className="toDoItems">
+          {tasks.map((task, index) =>
+              <Sortable
+                key={task}
+                id={task}
+                index={index}
+                onDelete={deleteTask}
+              />
+          )}
+        </ul>
+      )}
     </div>
   );
 }

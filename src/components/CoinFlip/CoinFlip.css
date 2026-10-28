@@ -1,0 +1,68 @@
+.coinFlip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  padding: 18px;
+  border-radius: 12px;
+
+  background-color: #3d2c14;
+  color: white;
+}
+
+.coinStage {
+  perspective: 600px;
+  cursor: pointer;
+}
+
+.coin {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  transform-style: preserve-3d;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+.coinFace {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  backface-visibility: hidden;
+
+  border: 5px solid #b8860b;
+  background: radial-gradient(circle at 35% 30%, #ffe48a, #d4a017);
+  color: #7a5800;
+  font-size: 2.6rem;
+  font-weight: 800;
+}
+
+.coinTails {
+  transform: rotateY(180deg);
+  background: radial-gradient(circle at 35% 30%, #f0f0f0, #a8a8a8);
+  border-color: #808080;
+  color: #555;
+}
+
+.coinResult {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.coinStats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: #ffffffb3;
+}
+
+.coinStats button {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background-color: #ffffff22;
+  cursor: pointer;
+}

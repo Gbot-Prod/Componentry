@@ -1,12 +1,25 @@
-.alarmComponent {
+.alarm {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 6px;
 
-  border-radius: 10px;
   padding: 20px;
-  background-color: rgb(149, 226, 119);
+  border-radius: 12px;
 
+  background-color: #95e277;
+  color: #1f3d14;
+}
 
+.alarmTime {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.alarmDate {
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.75;
 }
