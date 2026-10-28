@@ -1,0 +1,52 @@
+.pinboard {
+  position: relative;
+  /* Pin z-indexes keep climbing; contain them so the floating sidebar stays on top. */
+  isolation: isolate;
+  flex: 1;
+
+  /* Dotted corkboard so it reads as "place things anywhere". */
+  background-image: radial-gradient(#8885 1px, transparent 1px);
+  background-size: 22px 22px;
+  transition: box-shadow 120ms ease-out, background-color 120ms ease-out;
+}
+
+.pinboardDropTarget {
+  box-shadow: inset 0 0 0 3px #5865f2;
+  background-color: #5865f214;
+}
+
+.pinboardEmpty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 0.25rem;
+
+  color: #888;
+  text-align: center;
+  pointer-events: none;
+}
+
+.pinboardEmptyTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.pin {
+  position: absolute;
+}
+
+.pin .widgetFrameHeader {
+  cursor: grab;
+  /* Stop touch screens from scrolling the page instead of moving the pin. */
+  touch-action: none;
+  user-select: none;
+}
+
+.pinDragging .widgetFrameHeader {
+  cursor: grabbing;
+}
+
+.pinDragging .widgetFrame {
+  box-shadow: 0 14px 32px #0000005c;
+}

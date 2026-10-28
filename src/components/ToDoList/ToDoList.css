@@ -3,80 +3,87 @@
   flex-direction: column;
   gap: 12px;
 
-  width: 100%;
-  max-width: 420px;
-
-  margin: 0 auto;
-  padding: 20px 24px;
+  padding: 16px;
   border-radius: 12px;
 
   background-color: #FFF7CD;
+  color: #3a3320;
 }
 
-/* Input row */
-
-.taskInputContainer {
+.toDoInputRow {
   display: flex;
   gap: 8px;
 }
 
-.taskInput {
+.toDoInput {
   flex: 1;
+  min-width: 0;
   padding: 6px 10px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+
+  background-color: white;
+  border: 1px solid #e6d98f;
+  outline: none;
 }
 
-/* Base button style */
+.toDoInput:focus {
+  border-color: #e43060;
+}
 
-.addButton,
-.deleteButton {
-  padding: 6px 12px;
+.toDoAddButton {
+  padding: 6px 14px;
   border-radius: 6px;
-  border: none;
-  background-color: #F57799;
-  font-size: 14px;
-  font-weight: 600;
+  background-color: #e43060;
   color: white;
+  font-weight: 600;
   cursor: pointer;
 }
 
-/* List + items */
-
-.taskList {
-  width: 100%;
+.toDoItems {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.item {
+.toDoItem {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 6px;
 
-  width: 100%;
-  padding: 6px 10px;
-  margin-bottom: 8px;
+  padding: 6px 6px 6px 10px;
   border-radius: 8px;
 
-  background-color: #e43060;
-}
-
-.text {
-  flex: 1;
+  background-color: #F57799;
   color: white;
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
-.dragSource {
+.toDoItemText {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.toDoDeleteButton {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  width: 24px;
-  height: 24px;
-  background-color: #F57799;
-  border-radius: 8px;
-  
-  margin-left: 6px;
-  font-weight: bold;
+  padding: 3px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.toDoDeleteButton:hover,
+.toDoDeleteButton:focus-visible {
+  background-color: #ffffff33;
+}
+
+.toDoDragHandle {
+  display: flex;
+  color: #ffffffb3;
+  cursor: grab;
+}
+
+.toDoEmpty {
+  color: #8a7d45;
+  font-size: 0.85rem;
+  text-align: center;
 }

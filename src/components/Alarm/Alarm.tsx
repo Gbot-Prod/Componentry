@@ -2,23 +2,20 @@ import { useEffect, useState } from "react";
 import "./Alarm.css"
 
 function Alarm() {
-  const [currentDateFormatted, setCurrentDateFormatted] = useState(new Date().toLocaleString());
+  const [now, setNow] = useState(() => new Date());
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentDateFormatted(new Date().toLocaleString());
+      setNow(new Date());
     }, 1000);
 
     return () => clearInterval(intervalId);
   }, []);
 
   return (
-    <div className="alarmComponent">
-      <h2 className="title">Alarm</h2>
-      <div className="alarmContent">
-        <h1 className="alarmTime"></h1>
-        <p className="dateTime">{currentDateFormatted}</p>
-      </div>
+    <div className="alarm">
+      <div className="alarmTime">{now.toLocaleTimeString()}</div>
+      <div className="alarmDate">{now.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })}</div>
     </div>
   );
 }

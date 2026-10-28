@@ -1,0 +1,67 @@
+.bugSquash {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 12px;
+  border-radius: 12px;
+
+  background-color: #4a6b2a;
+  color: white;
+}
+
+.bsHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.bsGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 64px);
+  gap: 10px;
+}
+
+.bsHole {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 60%, #2b1a0d 55%, #5a3a1d 70%);
+  overflow: hidden;
+  cursor: crosshair;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.bsCritter {
+  font-size: 2rem;
+  animation: bsPop 140ms ease-out;
+}
+
+@keyframes bsPop {
+  from { transform: translateY(70%) scale(0.6); }
+}
+
+.bsSplat {
+  position: absolute;
+  font-size: 2rem;
+  animation: bsSplat 200ms ease-out forwards;
+}
+
+@keyframes bsSplat {
+  to { transform: scale(1.5); opacity: 0; }
+}
+
+.bsOverlay {
+  position: absolute;
+  inset: -4px;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: #000000a0;
+  font-weight: 800;
+  cursor: pointer;
+}

@@ -1,0 +1,161 @@
+.notepad {
+  --np-accent: #5865f2;
+
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  max-width: 100%;
+}
+
+/* ---- Tabs ---- */
+
+.npTabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.npTab {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  max-width: 120px;
+  border-radius: 8px 8px 0 0;
+  background-color: #ffffff12;
+  color: #ffffffa0;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.npTab > button:first-child {
+  overflow: hidden;
+  padding: 5px 4px 5px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.npTab.active {
+  background-color: #f7f8fa;
+  color: #1e1f22;
+  box-shadow: inset 0 2px 0 var(--np-accent);
+}
+
+.npTabClose {
+  display: flex;
+  margin-right: 4px;
+  padding: 2px;
+  border-radius: 4px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.npTabClose:hover { opacity: 1; background-color: #00000022; }
+
+.npTabAdd {
+  display: flex;
+  flex-shrink: 0;
+  margin: 0 0 3px 4px;
+  padding: 3px;
+  border-radius: 6px;
+  color: #ffffffa0;
+  cursor: pointer;
+}
+
+.npTabAdd:hover { background-color: #ffffff1f; color: white; }
+
+/* ---- Sheet ---- */
+
+.npSheet {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px 10px;
+  border-radius: 0 10px 10px 10px;
+  background-color: #f7f8fa;
+  color: #1e1f22;
+}
+
+.npTitle {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #1e1f22;
+  font-size: 1.15rem;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+}
+
+.npTitle::placeholder { color: #b0b3ba; }
+
+.npToolbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e3e5e8;
+}
+
+.npToolbar > button {
+  display: flex;
+  padding: 5px;
+  border-radius: 6px;
+  color: #4e5058;
+  cursor: pointer;
+}
+
+.npToolbar > button:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--np-accent) 14%, transparent);
+  color: var(--np-accent);
+}
+
+.npToolbar > button:disabled { opacity: 0.35; cursor: default; }
+
+.npDivider {
+  width: 1px;
+  height: 16px;
+  margin: 0 4px;
+  background-color: #e3e5e8;
+}
+
+.npAccents {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.npAccents button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 100ms;
+}
+
+.npAccents button:hover { transform: scale(1.2); }
+.npAccents button.active { box-shadow: 0 0 0 2px #f7f8fa, 0 0 0 3.5px currentColor; color: #1e1f22; }
+
+.npText {
+  min-height: 180px;
+  resize: vertical;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #2e3035;
+  font-family: ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  caret-color: var(--np-accent);
+}
+
+.npText::placeholder { color: #b0b3ba; }
+.npText::selection { background-color: color-mix(in srgb, var(--np-accent) 25%, transparent); }
+
+.npFooter {
+  display: flex;
+  justify-content: space-between;
+  color: #80848e;
+  font-size: 0.68rem;
+}

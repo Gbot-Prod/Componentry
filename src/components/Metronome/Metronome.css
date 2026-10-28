@@ -1,0 +1,68 @@
+.metronome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px;
+  border-radius: 12px;
+
+  background-color: #2d1f1a;
+  color: white;
+}
+
+.metroBeats {
+  display: flex;
+  gap: 8px;
+}
+
+.metroDot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #ffffff22;
+  transition: background-color 60ms;
+}
+
+.metroDot.accent { box-shadow: inset 0 0 0 2px #f5a65b; }
+.metroDot.on { background-color: #f5a65b; }
+
+.metroBpm {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.metroBpm strong {
+  font-size: 1.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.metroBpm button,
+.metroControls button,
+.metroControls select {
+  padding: 4px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #ffffff22;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.metroControls option { color: black; }
+
+.metronome input[type="range"] {
+  width: 100%;
+  accent-color: #f5a65b;
+}
+
+.metroControls {
+  display: flex;
+  gap: 6px;
+}
+
+.metroControls .metroPlay {
+  background-color: #f5a65b;
+  color: #2d1f1a;
+}

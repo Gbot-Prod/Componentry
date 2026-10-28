@@ -1,67 +1,229 @@
-.pomodoro-timer {
+/* Each session type has its own palette; everything below reads these vars. */
+.pomodoro {
+  --pomo-bg: #ffdab9;
+  --pomo-text: #bb4e4e;
+  --pomo-accent: #f08080;
+  --pomo-soft: #f4978e44;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  padding: 20px;
+  border-radius: 12px;
+
+  background-color: var(--pomo-bg);
+  color: var(--pomo-text);
+  transition: background-color 400ms ease, color 400ms ease;
+}
+
+.pomodoro.shortBreak {
+  --pomo-bg: #d8f3dc;
+  --pomo-text: #2d6a4f;
+  --pomo-accent: #52b788;
+  --pomo-soft: #52b78833;
+}
+
+.pomodoro.longBreak {
+  --pomo-bg: #dbeafe;
+  --pomo-text: #2c4f8a;
+  --pomo-accent: #5b8def;
+  --pomo-soft: #5b8def33;
+}
+
+.pomodoro button {
+  border-radius: 6px;
+  background-color: var(--pomo-soft);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 150ms ease, transform 100ms ease;
+}
+
+.pomodoro button:active {
+  transform: scale(0.96);
+}
+
+.pomodoro button:focus-visible,
+.pomodoro input:focus-visible {
+  outline: 2px solid var(--pomo-accent);
+  outline-offset: 2px;
+}
+
+.pomodoro button.primary,
+.pomodoro button.active {
+  background-color: var(--pomo-accent);
+  color: white;
+}
+
+.pomodoroModes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.pomodoroModes button {
+  padding: 4px 10px;
+  font-size: 0.85rem;
+}
+
+/* Progress ring */
+.pomodoroRing {
+  position: relative;
+  width: 100%;
+  max-width: 190px;
+  aspect-ratio: 1;
+}
+
+.pomodoroRing svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* start the arc at 12 o'clock */
+}
+
+.pomodoroRing circle {
+  fill: none;
+  stroke-width: 7;
+}
+
+.pomodoroRingTrack {
+  stroke: var(--pomo-soft);
+}
+
+.pomodoroRingProgress {
+  stroke: var(--pomo-accent);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 120ms linear, stroke 400ms ease;
+}
+
+.pomodoroRingCenter {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  border-radius: 15px;
-  padding: 20px 30px;
-
-  background-color: #ffdab9;
+  gap: 8px;
 }
 
-.timerLengths {
-  display: flex;
-  flex-direction: row;
+.pomodoroDisplay {
+  font-size: 2.6rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
 
+.pomodoroRounds {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 110px;
+  gap: 5px;
+}
+
+.pomodoroRounds span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--pomo-soft);
+  transition: background-color 300ms ease;
+}
+
+.pomodoroRounds span.filled {
+  background-color: var(--pomo-accent);
+}
+
+.pomodoroCount {
+  font-size: 0.75rem;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.pomodoroControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pomodoroControls button {
+  padding: 6px 14px;
+}
+
+.pomodoroControls .primary {
+  min-width: 5.5rem;
+}
+
+.pomodoroControls .iconButton {
+  display: flex;
+  padding: 7px;
+}
+
+/* Settings */
+.pomodoroSettings {
+  display: flex;
+  flex-direction: column;
   gap: 10px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: var(--pomo-soft);
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
-.Pomodoro,
-.shortBreak,
-.longBreak {
+.pomodoroSettingsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.pomodoroSettingsGrid label {
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: center;
+  column-gap: 4px;
+}
 
-  padding: 8px 14px;
+.pomodoroSettingsGrid label > span:first-child {
+  grid-column: 1 / -1;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
 
-  border-radius: 10px;
-  background-color: #f4978e;
+.pomodoroSettingsGrid input {
+  width: 100%;
+  min-width: 0;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background-color: #ffffffaa;
+  color: inherit;
+  font-weight: 700;
+  text-align: center;
+}
 
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
+.pomodoroUnit {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
 
+.pomodoroToggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   cursor: pointer;
 }
 
-.controls {
-  display: flex;
-  flex-direction: row;
-
-  gap: 20px;
+.pomodoroToggle input {
+  accent-color: var(--pomo-accent);
 }
 
-.startButton,
-.resetButton {
+.pomodoroSettingsActions {
   display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 10px 20px;
-
-  border-radius: 10px;
-  background-color: #f08080;
-
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-
-  cursor: pointer;
+  justify-content: space-between;
+  gap: 8px;
 }
 
-.display {
-  font-size: 68px;
-  font-weight: bold;
-  color: #bb4e4e;
+.pomodoroSettingsActions button {
+  padding: 5px 12px;
 }

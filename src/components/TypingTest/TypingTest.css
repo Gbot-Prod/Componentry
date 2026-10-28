@@ -1,0 +1,51 @@
+.typingTest {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 280px;
+
+  padding: 14px;
+  border-radius: 12px;
+
+  background-color: #2c2e31;
+  color: #646669;
+  cursor: text;
+}
+
+.ttTarget {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.ttTarget .right { color: #d1d0c5; }
+.ttTarget .wrong { color: #ca4754; background-color: #ca475422; border-radius: 2px; }
+.ttTarget .cursor { box-shadow: -2px 0 0 #e2b714; animation: ttBlink 1s steps(1) infinite; }
+
+@keyframes ttBlink { 50% { box-shadow: none; } }
+
+/* The real input sits off-screen; the sentence above is the visible "field". */
+.ttInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.ttFooter {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.ttFooter strong { color: #e2b714; }
+
+.ttNext {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background-color: #ffffff12;
+  color: #d1d0c5;
+  font-size: 0.75rem;
+  cursor: pointer;
+}

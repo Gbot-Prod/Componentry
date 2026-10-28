@@ -39,11 +39,11 @@ function Stopwatch() {
 
   return (
     <div className="stopwatch">
-      <div className="display">{formatHHMMSSms(elapsedTime)}</div>
-      <div className="controls">
-        <button className="startButton" onClick={startStopwatch} >Start</button>
-        <button className="stopButton" onClick={stopStopwatch} >Stop</button>
-        <button className="resetButton" onClick={resetStopwatch} >Reset</button>
+      <div className="stopwatchDisplay">{formatHHMMSSms(elapsedTime)}</div>
+      <div className="stopwatchControls">
+        <button className="primary" onClick={startStopwatch} disabled={isRunning}>Start</button>
+        <button onClick={stopStopwatch} disabled={!isRunning}>Stop</button>
+        <button onClick={resetStopwatch}>Reset</button>
       </div>
     </div>
   );

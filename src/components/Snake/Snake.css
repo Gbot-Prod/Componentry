@@ -1,0 +1,46 @@
+.snake {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 12px;
+  border-radius: 12px;
+
+  background-color: #1a2e1a;
+  color: white;
+}
+
+.snakeHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.snakeBoard {
+  position: relative;
+  display: grid;
+  gap: 1px;
+  width: 225px;
+  aspect-ratio: 1;
+  padding: 2px;
+  border-radius: 6px;
+  background-color: #0f1c0f;
+  outline: none;
+}
+
+.snakeBoard:focus-visible { box-shadow: 0 0 0 2px #7cd67c; }
+
+.snakeCell { border-radius: 2px; }
+.snakeCell.body { background-color: #4caf50; }
+.snakeCell.head { background-color: #9cff9c; }
+.snakeCell.food { background-color: #ff5c5c; border-radius: 50%; }
+
+.snakeOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  background-color: #000000aa;
+  font-weight: 700;
+  cursor: pointer;
+}

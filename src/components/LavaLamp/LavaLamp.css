@@ -1,0 +1,78 @@
+.lavaLamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  padding: 14px 30px;
+  border-radius: 12px;
+
+  background-color: #121214;
+  color: #ffffff80;
+}
+
+.llLamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.llCap {
+  width: 40px;
+  height: 22px;
+  border-radius: 6px 6px 2px 2px;
+  background: linear-gradient(90deg, #666, #ccc, #666);
+  clip-path: polygon(15% 0, 85% 0, 100% 100%, 0 100%);
+}
+
+.llGlass {
+  position: relative;
+  width: 90px;
+  height: 200px;
+  overflow: hidden;
+  clip-path: polygon(28% 0, 72% 0, 100% 100%, 0 100%);
+  background-color: var(--ll-liquid);
+  box-shadow: 0 0 40px var(--ll-blob);
+  /* Gooey metaball trick. */
+  filter: contrast(14) saturate(1.2);
+  transition: background-color 600ms;
+}
+
+.llBlob,
+.llPool {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--ll-blob);
+  filter: blur(8px);
+  transition: background-color 600ms;
+}
+
+.llBlob {
+  bottom: -60px;
+  animation: llRise ease-in-out infinite;
+}
+
+@keyframes llRise {
+  0% { transform: translateY(0) scale(1, 1); }
+  45% { transform: translateY(-230px) scale(0.85, 1.15); }
+  55% { transform: translateY(-235px) scale(1.1, 0.9); }
+  100% { transform: translateY(0) scale(1, 1); }
+}
+
+.llPool {
+  bottom: -20px;
+  left: -10%;
+  width: 120%;
+  height: 40px;
+}
+
+.llBase {
+  width: 100px;
+  height: 46px;
+  border-radius: 2px 2px 10px 10px;
+  background: linear-gradient(90deg, #555, #bbb, #555);
+  clip-path: polygon(5% 0, 95% 0, 75% 100%, 25% 100%);
+}
+
+.llHint { font-size: 0.65rem; }

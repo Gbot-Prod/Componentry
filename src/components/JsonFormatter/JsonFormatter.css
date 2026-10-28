@@ -1,0 +1,58 @@
+.jsonFormatter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 300px;
+
+  padding: 12px;
+  border-radius: 12px;
+
+  background-color: #1a1b26;
+  color: white;
+}
+
+.jsonFormatter textarea {
+  min-height: 150px;
+  resize: vertical;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #11121a;
+  color: #c0caf5;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.75rem;
+  white-space: pre;
+  tab-size: 2;
+}
+
+.jsonFormatter textarea.invalid { border-color: #f7768e88; }
+
+.jfStatus {
+  overflow: hidden;
+  color: #ffffff80;
+  font-size: 0.7rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jfStatus.ok { color: #9ece6a; }
+.jfStatus.error { color: #f7768e; }
+
+.jfButtons {
+  display: flex;
+  gap: 4px;
+}
+
+.jfButtons button {
+  flex: 1;
+  padding: 4px 0;
+  border-radius: 6px;
+  background-color: #ffffff14;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.jfButtons button:hover:not(:disabled) { background-color: #7aa2f7; color: #1a1b26; }
+.jfButtons button:disabled { opacity: 0.4; cursor: not-allowed; }

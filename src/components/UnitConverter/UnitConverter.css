@@ -1,0 +1,55 @@
+.unitConverter {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+
+  padding: 14px;
+  border-radius: 12px;
+
+  background-color: #1b3a5c;
+  color: white;
+}
+
+.unitConverter select,
+.unitConverter input,
+.unitResult {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background-color: #0f2540;
+  color: white;
+}
+
+.unitCategory { font-weight: 700; }
+
+.unitRow {
+  display: flex;
+  gap: 6px;
+}
+
+.unitRow input,
+.unitResult {
+  flex: 1;
+  min-width: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.unitResult {
+  overflow-x: auto;
+  color: #8fd0ff;
+  font-weight: 700;
+}
+
+.unitSwap {
+  align-self: center;
+  display: flex;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: #ffffff22;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+
+.unitSwap:hover { background-color: #ffffff44; }

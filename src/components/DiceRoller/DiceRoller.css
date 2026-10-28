@@ -1,0 +1,57 @@
+.diceRoller {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  padding: 20px;
+  border-radius: 12px;
+
+  background-color: #1f5f3a;
+  color: white;
+}
+
+.diceRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.die.rolling {
+  animation: diceShake 0.4s ease-in-out;
+}
+
+@keyframes diceShake {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-20deg) translateY(-6px); }
+  75% { transform: rotate(20deg) translateY(-3px); }
+}
+
+.diceTotal {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.diceControls {
+  display: flex;
+  gap: 8px;
+}
+
+.diceControls button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  background-color: #ffffff22;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.diceControls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.diceControls .rollButton {
+  background-color: #f5d76e;
+  color: #1f1f1f;
+}

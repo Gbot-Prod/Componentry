@@ -1,54 +1,46 @@
-.tictactoeComponent {
+.ticTacToe {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 20px 30px;
-  border-radius: 15px;
-  background: aquamarine;
+  gap: 12px;
+
+  padding: 20px;
+  border-radius: 12px;
+
+  background-color: #7fe5c4;
+  color: #134e40;
 }
 
-.gameboard,
-.board-row {
-  display: flex;
-  gap: 0;
+.ticTacToeStatus {
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
-.gameTitle {
-  font: 700 24px system-ui, serif;
+.ticTacToeBoard {
+  display: grid;
+  grid-template-columns: repeat(3, 64px);
+  gap: 6px;
 }
 
-.gameStatus {
-  font: 600 18px system-ui, serif;
-  margin-bottom: 10px;
-}
-
-.gameboard {
-  flex-direction: column;
-}
-
-.square {
-  width: 60px;
-  height: 60px;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  border: 1px solid rgb(90, 90, 90);
-  border-radius: 0;
-  font: 600 2rem system-ui, serif;
+.ticTacToeSquare {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  background-color: #ffffff88;
+  font-size: 2rem;
+  font-weight: 700;
   cursor: pointer;
+  transition: background-color 80ms ease-out;
 }
 
-.tictactoeResetButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  border: 0;
-  border-radius: 10px;
-  margin-top: 10px;
-  background: #75aee4;
-  color: rgb(255, 255, 255);
-  font: 700 16px system-ui, sans-serif;
+.ticTacToeSquare:hover {
+  background-color: #ffffffcc;
+}
+
+.ticTacToeResetButton {
+  padding: 6px 14px;
+  border-radius: 6px;
+  background-color: #134e40;
+  color: white;
+  font-weight: 600;
   cursor: pointer;
 }

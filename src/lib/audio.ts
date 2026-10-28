@@ -4,7 +4,9 @@ export const clickSound = new Audio("/click.mp3");
 clickSound.volume = 0.5;
 
 export const playClickSound = () => {
-  clickSound.play();
+  // Restart so rapid clicks each make a sound; ignore autoplay-policy rejections.
+  clickSound.currentTime = 0;
+  clickSound.play().catch(() => {});
 };
 
 export const alarm = new Audio("/alarm.mp3");

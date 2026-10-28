@@ -1,0 +1,112 @@
+.petRock {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 220px;
+
+  padding: 40px 14px 14px;
+  border-radius: 12px;
+
+  background: linear-gradient(#87ceeb 0 60%, #6b8e23 60%);
+  color: #2b2b2b;
+}
+
+.prBubble {
+  position: absolute;
+  top: 8px;
+  max-width: 180px;
+  padding: 4px 10px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 2px 6px #0003;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  animation: prFade 3s forwards;
+}
+
+@keyframes prFade {
+  0% { opacity: 0; transform: translateY(4px); }
+  10%, 80% { opacity: 1; transform: none; }
+  100% { opacity: 0; }
+}
+
+.prRock {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 110px;
+  height: 78px;
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  background: radial-gradient(circle at 35% 30%, #a9a9a9, #6e6e6e 70%);
+  box-shadow: 0 8px 0 -2px #00000033;
+  cursor: pointer;
+  animation: prBounce 300ms ease-out;
+}
+
+@keyframes prBounce {
+  40% { transform: scale(1.08, 0.92); }
+  70% { transform: translateY(-6px); }
+}
+
+.prHat {
+  position: absolute;
+  top: -22px;
+  font-size: 1.8rem;
+}
+
+.prFace {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2b2b2b;
+}
+
+.prName {
+  width: 120px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font-weight: 800;
+  text-align: center;
+  text-shadow: 0 1px 2px #0006;
+}
+
+.prBars {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: white;
+}
+
+.prBars label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prBars meter { width: 120px; }
+
+.prActions {
+  display: flex;
+  gap: 4px;
+}
+
+.prActions button {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background-color: #ffffffcc;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.prPets {
+  color: #ffffffcc;
+  font-size: 0.65rem;
+}
