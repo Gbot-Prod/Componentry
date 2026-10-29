@@ -9,18 +9,58 @@
 
   background-color: #1d4e57;
   color: white;
+  transition: background-color 300ms ease;
+}
+
+.timer.finished {
+  animation: timer-flash 1s ease-in-out infinite;
+}
+
+@keyframes timer-flash {
+  50% { background-color: #2f7a68; }
 }
 
 .timerDisplay {
+  padding: 0 6px;
+  border-radius: 8px;
+
   font-size: 2.5rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   line-height: 1;
+  cursor: pointer;
 }
 
-.timerControls {
+.timerDisplay:hover { background-color: #ffffff11; }
+
+.timerProgress {
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  overflow: hidden;
+  background-color: #ffffff22;
+}
+
+.timerProgress div {
+  height: 100%;
+  border-radius: inherit;
+  background-color: #7fd1b9;
+  transition: width 100ms linear;
+}
+
+.timerControls,
+.timerPresets {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
+}
+
+.timerPresets { gap: 6px; }
+
+.timerPresets .timerButton {
+  padding: 3px 9px;
+  font-size: 0.8rem;
 }
 
 .timerButton {
@@ -29,6 +69,16 @@
   background-color: #ffffff22;
   font-weight: 600;
   cursor: pointer;
+  transition: background-color 150ms ease, transform 100ms ease;
+}
+
+.timerButton:active:not(:disabled) { transform: scale(0.96); }
+
+.timerButton:focus-visible,
+.timerDisplay:focus-visible,
+.timeInput:focus-visible {
+  outline: 2px solid #7fd1b9;
+  outline-offset: 2px;
 }
 
 .timerButton:disabled {
@@ -37,8 +87,15 @@
 }
 
 .timerButton.primary {
+  min-width: 84px;
   background-color: #7fd1b9;
   color: #1f1f1f;
+}
+
+.timerButton.iconButton {
+  display: flex;
+  align-items: center;
+  padding: 6px 9px;
 }
 
 /* Time picker: only shows while setting the timer length */

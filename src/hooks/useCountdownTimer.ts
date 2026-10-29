@@ -15,6 +15,7 @@ interface UseCountdownTimerReturn {
   resume: () => void;
   reset: () => void;
   setTime: (ms: number) => void;
+  addTime: (ms: number) => void;
 }
 
 export function useCountdownTimer({
@@ -54,6 +55,7 @@ export function useCountdownTimer({
 
       if (newTime <= 0) {
         stop();
+        remainingAtStart.current = 0;
         setIsRunning(false);
         onFinishRef.current?.();
       }
@@ -96,8 +98,14 @@ export function useCountdownTimer({
     remainingAtStart.current = ms;
   }, [stop]);
 
+  // Works mid-run too: the next tick measures from the bumped starting amount.
+  const addTime = useCallback((ms: number) => {
+    remainingAtStart.current = Math.max(0, remainingAtStart.current + ms);
+    if (!intervalRef.current) setTimeMs(remainingAtStart.current);
+  }, []);
+
   // Cleanup on unmount
   useEffect(() => () => stop(), [stop]);
 
-  return { timeMs, isRunning, start, pause, resume, reset, setTime };
+  return { timeMs, isRunning, start, pause, resume, reset, setTime, addTime };
 }

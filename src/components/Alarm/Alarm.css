@@ -1,4 +1,7 @@
 .alarm {
+  --alarm-text: #1f3d14;
+  --alarm-soft: #1f3d141f;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +11,29 @@
   border-radius: 12px;
 
   background-color: #95e277;
-  color: #1f3d14;
+  color: var(--alarm-text);
+}
+
+.alarm button {
+  border-radius: 6px;
+  background-color: var(--alarm-soft);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 150ms ease, transform 100ms ease;
+}
+
+.alarm button:active { transform: scale(0.96); }
+
+.alarm button.primary,
+.alarm button.active {
+  background-color: var(--alarm-text);
+  color: #95e277;
+}
+
+.alarm button:focus-visible,
+.alarm input:focus-visible {
+  outline: 2px solid var(--alarm-text);
+  outline-offset: 2px;
 }
 
 .alarmTime {
@@ -23,3 +48,220 @@
   font-weight: 600;
   opacity: 0.75;
 }
+
+.alarmNext {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.6;
+}
+
+/* Ringing banner */
+.alarmRinging {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+
+  padding: 8px 10px;
+  border-radius: 8px;
+  background-color: var(--alarm-text);
+  color: #95e277;
+  animation: alarm-pulse 1s ease-in-out infinite;
+}
+
+.alarmRingingIcon { flex-shrink: 0; animation: alarm-shake 0.5s ease-in-out infinite; }
+
+.alarmRingingText {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  font-size: 0.75rem;
+}
+
+.alarmRingingTime { font-size: 1.1rem; font-weight: 700; }
+
+.alarm .alarmRinging button {
+  padding: 4px 10px;
+  background-color: #95e27733;
+  color: #95e277;
+}
+
+.alarm .alarmRinging button.primary {
+  background-color: #95e277;
+  color: var(--alarm-text);
+}
+
+@keyframes alarm-pulse {
+  50% { box-shadow: 0 0 0 4px #1f3d1433; }
+}
+
+@keyframes alarm-shake {
+  25% { transform: rotate(-15deg); }
+  75% { transform: rotate(15deg); }
+}
+
+/* Alarm list */
+.alarmList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.alarmRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 4px 8px;
+  border-radius: 8px;
+  background-color: var(--alarm-soft);
+  transition: opacity 150ms ease;
+}
+
+.alarmRow.off { opacity: 0.5; }
+
+.alarm .alarmRowInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 0;
+  background: none;
+  text-align: left;
+}
+
+.alarmRowTime {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.alarmRowMeta {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 0.7rem;
+  font-weight: 600;
+  opacity: 0.75;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.alarm .alarmIconButton {
+  display: flex;
+  padding: 4px;
+  background: none;
+  opacity: 0.6;
+}
+
+.alarm .alarmIconButton:hover { opacity: 1; background-color: var(--alarm-soft); }
+
+/* On/off switch: the checkbox is invisible but still focusable and clickable. */
+.alarmSwitch {
+  position: relative;
+  flex-shrink: 0;
+  width: 34px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.alarmSwitch input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.alarmSwitch span {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background-color: #1f3d1433;
+  pointer-events: none;
+  transition: background-color 150ms ease;
+}
+
+.alarmSwitch span::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: white;
+  transition: transform 150ms ease;
+}
+
+.alarmSwitch input:checked + span { background-color: var(--alarm-text); }
+.alarmSwitch input:checked + span::after { transform: translateX(14px); background-color: #95e277; }
+.alarmSwitch input:focus-visible + span { outline: 2px solid var(--alarm-text); outline-offset: 2px; }
+
+/* Add / edit form */
+.alarm .alarmAdd {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  font-size: 0.85rem;
+}
+
+.alarmForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+
+  padding: 10px;
+  border-radius: 8px;
+  background-color: var(--alarm-soft);
+}
+
+.alarmFormRow {
+  display: flex;
+  gap: 6px;
+}
+
+.alarmForm input {
+  padding: 4px 8px;
+  border-radius: 6px;
+  background-color: #ffffff66;
+  outline: none;
+  font-weight: 600;
+}
+
+.alarmFormTime { font-variant-numeric: tabular-nums; }
+.alarmFormLabel { flex: 1; min-width: 0; }
+.alarmFormLabel::placeholder { color: #1f3d1488; }
+
+.alarmDays {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.alarm .alarmDays button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+}
+
+.alarmFormActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.alarmFormHint {
+  flex: 1;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.alarmFormActions button { padding: 4px 12px; }

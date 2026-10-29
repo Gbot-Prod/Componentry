@@ -24,11 +24,22 @@
 }
 
 .stopwatchControls button {
+  min-width: 80px;
   padding: 6px 14px;
   border-radius: 6px;
   background-color: #ffffff22;
   font-weight: 600;
   cursor: pointer;
+  transition: background-color 150ms ease, transform 100ms ease;
+}
+
+.stopwatchControls button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.stopwatchControls button:focus-visible {
+  outline: 2px solid #9ecbff;
+  outline-offset: 2px;
 }
 
 .stopwatchControls button:disabled {
@@ -40,3 +51,40 @@
   background-color: #9ecbff;
   color: #1f1f1f;
 }
+
+.stopwatchControls .stop {
+  background-color: #ff9e9e;
+  color: #1f1f1f;
+}
+
+/* Lap list */
+.stopwatchLaps {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 160px;
+  overflow-y: auto;
+
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.stopwatchLaps li {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  padding: 4px 6px;
+  border-top: 1px solid #ffffff1a;
+}
+
+.stopwatchLaps li:first-child {
+  border-top: none;
+  font-weight: 600;
+}
+
+.stopwatchLaps .stopwatchSplit {
+  opacity: 0.5;
+}
+
+.stopwatchLaps .fastest { color: #8be0a4; }
+.stopwatchLaps .slowest { color: #ff9e9e; }

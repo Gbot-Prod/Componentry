@@ -5,6 +5,7 @@ import { formatMMSS } from "../../lib/timeFormatUtils";
 import { playClickSound, playAlarm, stopAlarm } from "../../lib/audio";
 import { useCountdownTimer } from "../../hooks/useCountdownTimer";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { notify, requestNotificationPermission } from "../../lib/notify";
 import type { WidgetProps } from "../../widgets/registry";
 
 type TimerType = "pomodoro" | "shortBreak" | "longBreak";
@@ -50,12 +51,6 @@ const toInt = (value: string, fallback: number) => Math.round(Number(value)) || 
 function nextMode(mode: TimerType, completed: number, longBreakEvery: number): TimerType {
   if (mode !== "pomodoro") return "pomodoro";
   return completed % longBreakEvery === 0 ? "longBreak" : "shortBreak";
-}
-
-function notify(title: string, body: string) {
-  // Only worth it when the tab is in the background; the alarm covers the rest.
-  if (!document.hidden || !("Notification" in window) || Notification.permission !== "granted") return;
-  new Notification(title, { body });
 }
 
 function SettingsPanel({ settings, onSave, onResetCount }: {
@@ -177,10 +172,7 @@ function PomodoroTimer({ instanceId }: WidgetProps) {
       return;
     }
 
-    // Ask once, on a user gesture, so we can ping when a session ends in a background tab.
-    if ("Notification" in window && Notification.permission === "default") {
-      Notification.requestPermission().catch(() => {});
-    }
+    requestNotificationPermission();
 
     if (timeMs <= 0) {
       start(durationOf(mode));
